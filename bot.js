@@ -1,7 +1,8 @@
 const modules = [];
+const requestModule = require("request");
 const bot = {
     api_url: "https://api.groupme.com/v3/bots/",
-    request: require("request"),
+    request: requestModule,
     bot_ID: "",
     group_ID: "",
     sendMessage: (text) => {
