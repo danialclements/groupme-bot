@@ -29,7 +29,7 @@ exports.process = (message, bot) => {
         const wallIndex = message.text.toLowerCase().indexOf(buildTheWall);
         if (wallIndex != -1) {
             heightOfWall += 10;
-            bot.sendMessage(botID, `The wall just got 10ft higher. It's now ${heightOfWall}ft high.`);
+            bot.sendMessage(`The wall just got 10ft higher. It's now ${heightOfWall}ft high.`);
         }
         for (const [key, value] of dict) {
             let index;
@@ -40,9 +40,9 @@ exports.process = (message, bot) => {
             }
             if (index != -1) {
                 if (typeof(value) === "string") {
-                    bot.sendMessage(botID, value);
+                    bot.sendMessage(value);
                 } else if (typeof(value) === "object") {
-                    bot.sendMessage(botID, value[Math.floor(Math.random() * (value.length))]);
+                    bot.sendMessage(value[Math.floor(Math.random() * (value.length))]);
                 } else {
                     console.log("Type error.");
                 }

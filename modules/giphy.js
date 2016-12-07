@@ -19,12 +19,12 @@ exports.process = (message, bot) => {
             //Get up to the top five
             const numTopResults = (results.length < 5) ? results.length : 5;
             if (error || numTopResults === 0) {
-                bot.sendMessage(botID, "Nothing found 😥");
+                bot.sendMessage("Nothing found 😥");
             } else {
                 const indexSelected = Math.floor(Math.random() * (numTopResults));
                 const selected = results[indexSelected].images.original.url;
                 console.log(`${toSearch}=>${selected}`);
-                bot.sendMessage(botID, selected);
+                bot.sendMessage(selected);
             }
         });
     }
