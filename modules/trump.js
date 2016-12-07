@@ -25,7 +25,7 @@ dict.set("muslim", "Donald J. Trump is calling for a total and complete shutdown
 
 
 exports.process = (message, bot) => {
-    if (!message.isBot) {
+    if (!message.is_bot) {
         const buildTheWall = "the wall";
         const wallIndex = message.text.toLowerCase().indexOf(buildTheWall);
         if (wallIndex != -1) {
