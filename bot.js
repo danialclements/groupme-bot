@@ -61,6 +61,6 @@ exports.initialize = (values) => {
             return;
         }
     });
-    console.log(`Successfully initialized the bot, with bot_ID: ${bot_ID}, group_ID: ${group_ID}
+    console.log(`Successfully initialized the bot, with bot_ID: ${bot.bot_ID}, group_ID: ${bot.group_ID}
         , and modules ${modulesLoaded}`);
 };
