@@ -2,8 +2,8 @@ const modules = [];
 const bot = {
     url: "https://api.groupme.com/v3/bots/",
     request: require("request"),
-    bot_ID,
-    group_ID,
+    bot_ID: "",
+    group_ID: "",
     sendMessage: (text) => {
         const toSend = `${url}post?bot_id=${bot_ID}&text=${encodeURIComponent(text)}`;
         request.post(toSend, (error, response, body) => {
