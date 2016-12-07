@@ -23,7 +23,7 @@ dict.set("lying", "Lyin' Ted is a complete and total failure.");
 dict.set("muslim", "Donald J. Trump is calling for a total and complete shutdown of Muslims entering the United States until our country's representatives can figure out what the hell is going on.");
 
 
-exports.process = (text, isBot) => {
+exports.process = (text, isBot, sendMessage) => {
     if (!isBot) {
         const buildTheWall = "the wall";
         const wallIndex = text.toLowerCase().indexOf(buildTheWall);

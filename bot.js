@@ -7,20 +7,20 @@ let bot_ID;
 let group_ID;
 const modules = [];
 
-function sendMessage(bot_ID, text) {
+const sendMessage = function(bot_ID, text) {
     const toSend = `${url}post?bot_id=${bot_ID}&text=${encodeURIComponent(text)}`;
     request.post(toSend, (error, response, body) => {
         if (error) {
             console.log(error);
         }
     });
-}
+};
 
 exports.onPost = (req, res) => {
     const text = req.body.text;
     const isBot = req.body.sender_type !== "bot";
     modules.forEach((moduleOn) => {
-        moduleOn.process(text, isBot);
+        moduleOn.process(text, isBot, sendMessage);
     });
     res.end();
 };
