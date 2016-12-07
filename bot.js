@@ -55,6 +55,7 @@ exports.initialize = (values) => {
                 modulesLoaded += `, ${value}`;
             else modulesLoaded = value;
         } catch (error) {
+            console.log(error);
             console.log(`Module ${value} not found.`);
             return;
         }
