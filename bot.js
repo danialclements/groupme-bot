@@ -5,7 +5,7 @@ const url = "https://api.groupme.com/v3/bots/";
 
 let bot_ID;
 let group_ID;
-let modules;
+let modules = [];
 
 function sendMessage(bot_ID, text) {
     const toSend = `${url}post?bot_id=${bot_ID}&text=${encodeURIComponent(text)}`;
