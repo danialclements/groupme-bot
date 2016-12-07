@@ -1,5 +1,6 @@
-let heightOfWall = 0;
+const request = require("request");
 
+let heightOfWall = 0;
 const trumpChinaQuotes = ["We can’t continue to allow China to rape our country",
     "Listen, you motherfuckers, we’re going to tax you 25 percent!",
     "They are taking our jobs. China is taking our jobs. It is not going to happen anymore, folks!",
