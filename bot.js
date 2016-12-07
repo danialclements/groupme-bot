@@ -4,7 +4,7 @@ const bot = {
     api_url: "https://api.groupme.com/v3/bots/",
     bot_ID: "",
     group_ID: "",
-    sendMessage: (text) => {
+    sendMessage(text) {
         const toSend = `${this.api_url}post?bot_id=${this.bot_ID}&text=${encodeURIComponent(text)}`;
         request.post(toSend, (error, response, body) => {
             if (error) {
