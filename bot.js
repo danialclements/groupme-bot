@@ -48,15 +48,16 @@ exports.initialize = (values) => {
     //Load the modules, if possible.
     let modulesLoaded = "";
     values.modules.forEach((value, index) => {
-        const moduleOn = require(`modules/${value}.js`);
-        if (!moduleOn) {
+        try {
+            const moduleOn = require(`./modules/${value}.js`);
+            modules[index] = moduleOn;
+            if (modulesLoaded)
+                modulesLoaded += `, ${value}`;
+            else modulesLoaded = value;
+        } catch (error) {
             console.log(`Module ${value} not found.`);
             return;
         }
-        modules[index] = moduleOn;
-        if (modulesLoaded)
-            modulesLoaded += `, ${value}`;
-        else modulesLoaded = value;
     });
     console.log(`Successfully initialized the bot, with bot_ID: ${bot_ID}, group_ID: ${group_ID}
         , and modules ${modulesLoaded}`);
