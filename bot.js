@@ -5,8 +5,8 @@ const bot = {
     bot_ID: "",
     group_ID: "",
     sendMessage: (text) => {
-        const toSend = `${api_url}post?bot_id=${bot_ID}&text=${encodeURIComponent(text)}`;
-        request.post(toSend, (error, response, body) => {
+        const toSend = `${this.api_url}post?bot_id=${this.bot_ID}&text=${encodeURIComponent(text)}`;
+        this.request.post(toSend, (error, response, body) => {
             if (error) {
                 console.log(error);
             }
