@@ -1,5 +1,3 @@
-const request = require("request");
-
 exports.process = (message, bot) => {
     const toSearchFor = "@giphy ";
     const index = message.text.toLowerCase().indexOf(toSearchFor);
@@ -13,7 +11,7 @@ exports.process = (message, bot) => {
         const giphyurl = `http://api.giphy.com/v1/gifs/search?limit=5&q=${encodeURIComponent(toSearch)}&api_key=dc6zaTOxFJmzC`;
         
         //Get the giphy result, and send it, if found
-        request.get(giphyurl, (error, response, body) => {
+        bot.request.get(giphyurl, (error, response, body) => {
             const results = JSON.parse(body)["data"];
             //Get up to the top five
             const numTopResults = (results.length < 5) ? results.length : 5;

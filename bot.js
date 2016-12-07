@@ -1,12 +1,13 @@
-const request = require("request");
+const req = require("request");
 const modules = [];
 const bot = {
+    request: req,
     api_url: "https://api.groupme.com/v3/bots/",
     bot_ID: "",
     group_ID: "",
     sendMessage(text) {
         const toSend = `${bot.api_url}post?bot_id=${bot.bot_ID}&text=${encodeURIComponent(text)}`;
-        request.post(toSend, (error, response, body) => {
+        bot.request.post(toSend, (error, response, body) => {
             if (error) {
                 console.log(error);
             }
@@ -18,7 +19,7 @@ exports.onPost = (req, res) => {
     const message = {
         text: req.body.text,
         user: req.body.sender_id,
-        is_bot: req.body.sender_type !== "bot"
+        is_bot: req.body.sender_type === "bot"
     };
     modules.forEach((moduleOn) => {
         moduleOn.process(message, bot);
