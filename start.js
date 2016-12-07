@@ -16,4 +16,6 @@ app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
 
-app.post("/", bot.onPost(req, res));
+app.post("/", (req, res) => {
+    bot.onPost(req, res);
+});
