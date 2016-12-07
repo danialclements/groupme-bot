@@ -28,12 +28,12 @@ exports.onPost = (req, res) => {
 exports.initialize = (values) => {
     //Error checking
     let errors = false;
-    if (!values.bot_id) {
-        console.log("Please initialize with a bot_id");
+    if (!values.bot_ID) {
+        console.log("Please initialize with a bot_ID");
         errors = true;
     }
-    if (!values.group_id) {
-        console.log("Please intialize with a group_id");
+    if (!values.group_ID) {
+        console.log("Please intialize with a group_ID");
         errors = true;
     }
     if (!values.modules || values.modules.length < 1) {
@@ -43,8 +43,8 @@ exports.initialize = (values) => {
     if (errors)
         return;
     //We didn't have any errors, load the values.
-    bot_ID = values.bot_id;
-    group_ID = values.group_id;
+    bot_ID = values.bot_ID;
+    group_ID = values.group_ID;
     //Load the modules, if possible.
     let modulesLoaded = "";
     values.modules.forEach((value, index) => {
