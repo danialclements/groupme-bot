@@ -1,26 +1,27 @@
-const request = require("request");
-
-
-const url = "https://api.groupme.com/v3/bots/";
-
-let bot_ID;
-let group_ID;
 const modules = [];
-
-const sendMessage = function(bot_ID, text) {
-    const toSend = `${url}post?bot_id=${bot_ID}&text=${encodeURIComponent(text)}`;
-    request.post(toSend, (error, response, body) => {
-        if (error) {
-            console.log(error);
-        }
-    });
+const bot = {
+    url: "https://api.groupme.com/v3/bots/",
+    request: require("request"),
+    bot_ID,
+    group_ID,
+    sendMessage: (text) => {
+        const toSend = `${url}post?bot_id=${bot_ID}&text=${encodeURIComponent(text)}`;
+        request.post(toSend, (error, response, body) => {
+            if (error) {
+                console.log(error);
+            }
+        });
+    }
 };
 
 exports.onPost = (req, res) => {
-    const text = req.body.text;
-    const isBot = req.body.sender_type !== "bot";
+    const message = {
+        text: req.body.text,
+        user: req.body.sender_id,
+        is_bot: req.body.sender_type !== "bot"
+    };
     modules.forEach((moduleOn) => {
-        moduleOn.process(text, isBot, sendMessage);
+        moduleOn.process(message, bot);
     });
     res.end();
 };
@@ -43,8 +44,8 @@ exports.initialize = (values) => {
     if (errors)
         return;
     //We didn't have any errors, load the values.
-    bot_ID = values.bot_ID;
-    group_ID = values.group_ID;
+    bot.bot_ID = values.bot_ID;
+    bot.group_ID = values.group_ID;
     //Load the modules, if possible.
     let modulesLoaded = "";
     values.modules.forEach((value, index) => {

@@ -23,26 +23,26 @@ dict.set("lying", "Lyin' Ted is a complete and total failure.");
 dict.set("muslim", "Donald J. Trump is calling for a total and complete shutdown of Muslims entering the United States until our country's representatives can figure out what the hell is going on.");
 
 
-exports.process = (text, isBot, sendMessage) => {
-    if (!isBot) {
+exports.process = (message, bot) => {
+    if (!message.isBot) {
         const buildTheWall = "the wall";
-        const wallIndex = text.toLowerCase().indexOf(buildTheWall);
+        const wallIndex = message.text.toLowerCase().indexOf(buildTheWall);
         if (wallIndex != -1) {
             heightOfWall += 10;
-            sendMessage(botID, `The wall just got 10ft higher. It's now ${heightOfWall}ft high.`);
+            bot.sendMessage(botID, `The wall just got 10ft higher. It's now ${heightOfWall}ft high.`);
         }
         for (const [key, value] of dict) {
             let index;
             if (!key.includes(" ")) {
-                index = text.toLowerCase().split(/[\W\d]+/).indexOf(key);
+                index = message.text.toLowerCase().split(/[\W\d]+/).indexOf(key);
             } else {
-                index = text.toLowerCase().indexOf(key);
+                index = message.text.toLowerCase().indexOf(key);
             }
             if (index != -1) {
                 if (typeof(value) === "string") {
-                    sendMessage(botID, value);
+                    bot.sendMessage(botID, value);
                 } else if (typeof(value) === "object") {
-                    sendMessage(botID, value[Math.floor(Math.random() * (value.length))]);
+                    bot.sendMessage(botID, value[Math.floor(Math.random() * (value.length))]);
                 } else {
                     console.log("Type error.");
                 }
