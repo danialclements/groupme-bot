@@ -1,3 +1,5 @@
+const request = require("request");
+
 exports.process = (text, isBot) => {
     const toSearchFor = "@giphy ";
     const index = text.toLowerCase().indexOf(toSearchFor);
