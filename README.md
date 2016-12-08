@@ -20,6 +20,11 @@ in your post handler.
 
 To see an example that works in Heroku, look at `start.js`
 
+## Current modules
+* "trump" - This module creates a satirical Trump bot, where the height of the wall is tracked, and Trump will respond to certain keywords with real-life quotes.
+* "giphy" - This module allows a user to make giphy searches in messages by typing '@giphy [text to search]'.
+
+
 ## Creating a new module
 Let's create a new module called "hello", which will just say "Hello!" whenever anyone other than a bot says anything.
 
