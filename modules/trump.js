@@ -45,7 +45,7 @@ dict.set(["press","media"], "The press used to think that I was really this horr
 dict.set("anal", "No, I'm not into anal.");
 dict.set(["birth", "certificate"], "There is something on that birth certificate- or, he may not have one");
 dict.set("asian", "Bing bing. bong bong. bing bing bing");
-
+dict.set("refugee", "Fuck em all to death!!!");
 
 exports.process = (message, bot) => {
     if (!message.is_bot) {
