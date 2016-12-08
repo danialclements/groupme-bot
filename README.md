@@ -34,7 +34,7 @@ exports.process = (message, bot) => {
 You're done!
 
 
-What kind of properties do the `message` and `bot` objects have?
+### What kind of properties do the `message` and `bot` objects have?
 
 `message` has:
 * text - Contains the text of the message.
