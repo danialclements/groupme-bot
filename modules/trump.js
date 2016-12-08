@@ -21,7 +21,6 @@ dict.set("japanese", "I have tremendous respect for the Japanese people, I mean,
 dict.set("jeb", ["Excuse me, JEB!", "Please clap."]);
 dict.set("kick", "We got some BAD HOMBRES. OUT, OUT, OUT!");
 dict.set("lightbulb", "The boob job is terrible. They look like two lightbulbs coming out of her body.");
-dict.set("lying", "Lyin' Ted is a complete and total failure.");
 dict.set("marco", "Don't worry about it, Little Marco.");
 dict.set("mexico", ["When are we going to beat Mexico at the border? They're laughing at us.", "They're bringing drugs. They're bringing crime. They're rapists..."]);
 dict.set("money", "Black guys counting my money! I hate it. The only kind of people I want counting my money are little short guys that wear yarmulkes every day.");
@@ -31,7 +30,7 @@ dict.set("sad", "SAD!");
 dict.set("shoot", "I could stand in the middle of 5th Avenue and shoot somebody and I wouldn't lose voters.");
 dict.set("stupid", "Sorry losers and haters, but my I.Q. is one of the highest - and you all know it! Please don't feel so stupid or insecure, it's not your fault.");
 dict.set("suspense", "I'll keep you in suspense.");
-dict.set("ted", "Lyin' Ted would have been a total DISASTER.");
+dict.set(["ted", "lying"], ["Lyin' Ted would have been a total DISASTER.", "Lyin' Ted is a complete and total failure."]);
 dict.set("who do we have", "We got some BAD HOMBRES. OUT, OUT, OUT!");
 dict.set("woman", ["You know, it doesn’t really matter what the media writes as long as you’ve got a young and beautiful piece of ass."]);
 dict.set("viagra", "With the proper woman, you don't need Viagra.");
@@ -47,19 +46,33 @@ exports.process = (message, bot) => {
             bot.sendMessage(`The wall just got 10ft higher. It's now ${heightOfWall}ft high.`);
         }
         for (const [key, value] of dict) {
-            let index;
-            if (!key.includes(" ")) {
-                index = message.text.toLowerCase().split(/[\W\d]+/).indexOf(key);
+            let index = -1;
+            let inputKeys;
+            if (!Array.isArray(key)) {
+                inputKeys = [key];
             } else {
-                index = message.text.toLowerCase().indexOf(key);
+                inputKeys = key;
             }
+            
+            for (const item of inputKeys) {
+                if (!item.includes(" ")) {
+                    index = message.text.toLowerCase().split(/[\W\d]+/).indexOf(item);
+                } else {
+                    index = message.text.toLowerCase().indexOf(item);
+                }
+                
+                if (index != -1) {
+                    break;
+                }
+            }
+            
             if (index != -1) {
                 if (typeof(value) === "string") {
                     bot.sendMessage(value);
-                } else if (typeof(value) === "object") {
+                } else if (Array.isArray(value)) {
                     bot.sendMessage(value[Math.floor(Math.random() * (value.length))]);
                 } else {
-                    console.log("Type error.");
+                    console.log("Type error encountered while parsing value.");
                 }
             }
         }
