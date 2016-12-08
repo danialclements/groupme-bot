@@ -9,7 +9,7 @@ const bot = require("groupme-bot");
 bot.initialize({
   bot_ID: __your_bot_id__,
   group_ID: __your_bots_group_id__,
-  modules: [__module_you_want_1__, __module_you_want_2__, ...]
+  modules: [ "module_you_want_1", "module_you_want_2", ...]
 };
 ```
 Then call: 
