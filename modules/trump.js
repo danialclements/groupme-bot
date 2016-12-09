@@ -28,7 +28,6 @@ dict.set("muslim", "Donald J. Trump is calling for a total and complete shutdown
 dict.set("rug", "I don’t wear a ‘rug’—it’s mine. And I promise not to talk about your massive plastic surgeries that didn’t work.");
 dict.set("sad", "SAD!");
 dict.set("shoot", "I could stand in the middle of 5th Avenue and shoot somebody and I wouldn't lose voters.");
-dict.set("stupid", "Sorry losers and haters, but my I.Q. is one of the highest - and you all know it! Please don't feel so stupid or insecure, it's not your fault.");
 dict.set("suspense", "I'll keep you in suspense.");
 dict.set(["ted", "lying"], ["Lyin' Ted would have been a total DISASTER.", "Lyin' Ted is a complete and total failure."]);
 dict.set("who do we have", "We got some BAD HOMBRES. OUT, OUT, OUT!");
