@@ -14,7 +14,7 @@ dict.set("china", trumpChinaQuotes);
 dict.set("coke", "I have never seen a thin person drinking Diet Coke.");
 dict.set("daughter", "https://i.redd.it/y0mscagubhdx.jpg");
 dict.set("global warming", ["Believe me, the concept of global warming was created by and for the Chinese in order to make U.S. manufacturing non-competitive.", "It's freezing and snowing in New York - we need global warming!"]);
-dict.set("hillary", "Crooked Hillary is a disgrace. Sad!");
+dict.set(["hillary", "clinton"], "Crooked Hillary is a disgrace. Sad!");
 dict.set("immigrant", "They're not sending their best. They're bringing drugs, they're bringing crime, they're rapists... And some, I assume, are good people.");
 dict.set("iowa", "How stupid are the people of Iowa?");
 dict.set("japanese", "I have tremendous respect for the Japanese people, I mean, you can respect somebody that’s beating the hell out of you.");
@@ -66,9 +66,9 @@ exports.process = (message, bot) => {
             
             for (const item of inputKeys) {
                 if (!item.includes(" ")) {
-                    index = message.text.toLowerCase().split(/[\W\d]+/).indexOf(item);
+                    index = message.text.toLowerCase().split(/[\W\d]+/).indexOf(item.toLowerCase());
                 } else {
-                    index = message.text.toLowerCase().indexOf(item);
+                    index = message.text.toLowerCase().indexOf(item.toLowerCase());
                 }
                 
                 if (index != -1) {
