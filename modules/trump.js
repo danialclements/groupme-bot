@@ -14,7 +14,7 @@ dict.set("china", trumpChinaQuotes);
 dict.set("coke", "I have never seen a thin person drinking Diet Coke.");
 dict.set("daughter", "https://i.redd.it/y0mscagubhdx.jpg");
 dict.set("global warming", ["Believe me, the concept of global warming was created by and for the Chinese in order to make U.S. manufacturing non-competitive.", "It's freezing and snowing in New York - we need global warming!"]);
-dict.set("hillary", "Crooked Hillary is a disgrace. Sad!");
+dict.set(["hillary", "clinton"], ["Crooked Hillary is a disgrace. Sad!", "CROOKED HILLARY"]);
 dict.set("immigrant", "They're not sending their best. They're bringing drugs, they're bringing crime, they're rapists... And some, I assume, are good people.");
 dict.set("iowa", "How stupid are the people of Iowa?");
 dict.set("japanese", "I have tremendous respect for the Japanese people, I mean, you can respect somebody that’s beating the hell out of you.");
@@ -28,14 +28,12 @@ dict.set("muslim", "Donald J. Trump is calling for a total and complete shutdown
 dict.set("rug", "I don’t wear a ‘rug’—it’s mine. And I promise not to talk about your massive plastic surgeries that didn’t work.");
 dict.set("sad", "SAD!");
 dict.set("shoot", "I could stand in the middle of 5th Avenue and shoot somebody and I wouldn't lose voters.");
-dict.set("stupid", "Sorry losers and haters, but my I.Q. is one of the highest - and you all know it! Please don't feel so stupid or insecure, it's not your fault.");
 dict.set("suspense", "I'll keep you in suspense.");
 dict.set(["ted", "lying"], ["Lyin' Ted would have been a total DISASTER.", "Lyin' Ted is a complete and total failure."]);
 dict.set("who do we have", "We got some BAD HOMBRES. OUT, OUT, OUT!");
 dict.set("woman", ["You know, it doesn’t really matter what the media writes as long as you’ve got a young and beautiful piece of ass."]);
 dict.set("viagra", "With the proper woman, you don't need Viagra.");
 dict.set("vietnam", "It is a dangerous world out there — it’s scary, like Vietnam. Sort of like the Vietnam era. It is my personal Vietnam. I feel like a great and very brave soldier.");
-dict.set("Clinton", "CROOKED HILLARY");
 dict.set("Bible", "He walks in with the bible high, he puts it down, and then he lies!!! Lyin' Ted everyone!");
 dict.set(["IQ", "smart", "stupid"], "My IQ is one of the highest- and you all know it!");
 dict.set(["global", "globalism"], "We will no longer surrender this country to the false song of globalism");
@@ -66,9 +64,9 @@ exports.process = (message, bot) => {
             
             for (const item of inputKeys) {
                 if (!item.includes(" ")) {
-                    index = message.text.toLowerCase().split(/[\W\d]+/).indexOf(item);
+                    index = message.text.toLowerCase().split(/[\W\d]+/).indexOf(item.toLowerCase());
                 } else {
-                    index = message.text.toLowerCase().indexOf(item);
+                    index = message.text.toLowerCase().indexOf(item.toLowerCase());
                 }
                 
                 if (index != -1) {

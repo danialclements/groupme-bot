@@ -10,11 +10,11 @@ bot.initialize({
   bot_ID: __your_bot_id__,
   group_ID: __your_bots_group_id__,
   modules: [ "module_you_want_1", "module_you_want_2", ...]
-};
+});
 ```
 Then call: 
 ```javascript
-bot.onPost(req, res)
+bot.onPost(req, res);
 ```
 in your post handler.
 
