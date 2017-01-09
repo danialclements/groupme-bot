@@ -37,7 +37,6 @@ dict.set("vietnam", "It is a dangerous world out there — it’s scary, like Vi
 dict.set("Bible", "He walks in with the bible high, he puts it down, and then he lies!!! Lyin' Ted everyone!");
 dict.set(["IQ", "smart", "stupid"], "My IQ is one of the highest- and you all know it!");
 dict.set(["global", "globalism"], "We will no longer surrender this country to the false song of globalism");
-dict.set("know", "you know it, I know it, everybody knows it.");
 dict.set(["carson","doctor","sleepy"], "The sleepy doctor has awoken!");
 dict.set(["press","media"], "The press used to think that I was really this horrible, flame throwing, terrible tyrant. Right? ");
 dict.set("anal", "No, I'm not into anal.");
