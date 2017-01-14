@@ -21,6 +21,9 @@ exports.onPost = (req, res) => {
         user: req.body.sender_id,
         is_bot: req.body.sender_type === "bot"
     };
+
+    console.log(`Message '${req.body.text}' from '${req.body.sender_id}' recieved`);
+
     modules.forEach((moduleOn) => {
         moduleOn.process(message, bot);
     });
