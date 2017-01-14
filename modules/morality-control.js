@@ -378,8 +378,10 @@ const words = [
 "🖕"
 ];
 
-const scores = {};
+const balances = {};
 const badWordValue = 5;
+const currencySymbol = "💸"
+const currencyName = "Galactic Credits";
 
 exports.process = (message, bot) => {
 	let badWords = [],
@@ -388,6 +390,10 @@ exports.process = (message, bot) => {
     if (message.is_bot) {
         return;
     }
+
+	if (text.indexOf("morni") > -1) {
+		bot.sendMessage(`🌞Good morning ${message.name}`);
+	}
     
 	words.forEach((word) => {
 		if (text.indexOf(word) > -1) {
@@ -396,16 +402,19 @@ exports.process = (message, bot) => {
 	});
 
 	if (badWords.length) {
-		let score = scores[message.user] || 0,
+		let balance = balances[message.user] || 0,
 			fine = 0;
-		
+		// Apply fines for bad words
 		badWords.forEach((badWord) => {
 			fine = fine + badWordValue;
 		});
+		
+		balances[message.user] = balance = balance - fine;
 
-		scores[message.user] = score = score - fine;
+		bot.sendMessage(`${message.name}, 
 
-		bot.sendMessage(`${message.name}, you are fined ${fine} credits for the violations of the verbal morality statute.  Identified words are '${badWords.join(', ')}'.  Your current balance is ${score}`)
+		You are fined ${currencySymbol}${fine} ${currencyName} for the violations of the verbal morality statute.  Identified words are '${badWords.join(', ')}'.  
+		Your current balance is ${currencySymbol}${balance} ${currencyName}.`)
 	}
     
 };

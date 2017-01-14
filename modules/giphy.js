@@ -1,5 +1,5 @@
 exports.process = (message, bot) => {
-    const toSearchFor = "@giphy ";
+    const toSearchFor = "@arbiter ";
     const index = message.text.toLowerCase().indexOf(toSearchFor);
 
     //If we found the string we're looking for get results and send them
