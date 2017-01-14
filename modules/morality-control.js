@@ -383,7 +383,7 @@ const badWordValue = 5;
 
 exports.process = (message, bot) => {
 	let badWords = [],
-		text = message.text || "";
+		text = (message.text || "").toLowerCase();
 
     if (message.is_bot) {
         return;
@@ -405,7 +405,7 @@ exports.process = (message, bot) => {
 
 		scores[message.user] = score = score - fine;
 
-		bot.sendMessage(`You are fined ${fine} credits for the violations of the verbal morality statute.  Identified words are '${badWords.join(', ')}'.  Your current balance is ${score}`)
+		bot.sendMessage(`${message.name}, you are fined ${fine} credits for the violations of the verbal morality statute.  Identified words are '${badWords.join(', ')}'.  Your current balance is ${score}`)
 	}
     
 };

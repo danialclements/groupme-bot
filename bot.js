@@ -19,7 +19,8 @@ exports.onPost = (req, res) => {
     const message = {
         text: req.body.text,
         user: req.body.sender_id,
-        is_bot: req.body.sender_type === "bot"
+        is_bot: req.body.sender_type === "bot",
+        name: req.body.name
     };
 
     console.log(`Message '${req.body.text}' from '${req.body.sender_id}' recieved`);
