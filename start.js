@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const bot = require("./bot.js");
 
 const port = process.env.PORT || 3000;
+const botName = process.env.BOT_NAME || "Arbiter";
 
 bot.initialize({
     bot_ID: process.env.BOT_ID,
@@ -15,7 +16,9 @@ app.use(bodyParser.json());
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
-
+    
 app.post("/", (req, res) => {
     bot.onPost(req, res);
 });
+
+bot.sendMessage(`${botName} is online`);

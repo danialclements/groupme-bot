@@ -27,6 +27,8 @@ exports.onPost = (req, res) => {
     res.end();
 };
 
+exports.sendMessage = bot.sendMessage;
+
 exports.initialize = (values) => {
     //Error checking
     let errors = false;
