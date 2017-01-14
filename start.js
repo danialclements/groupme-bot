@@ -9,7 +9,7 @@ const botName = process.env.BOT_NAME || "Arbiter";
 bot.initialize({
     bot_ID: process.env.BOT_ID,
     group_ID: process.env.GROUP_ID,
-    modules: ["giphy", "trump", "arbys", "repeater"]
+    modules: ["giphy", "trump", "arbys", "repost-detection", 'morality-control']
 });
 
 app.use(bodyParser.json());
