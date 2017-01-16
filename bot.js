@@ -23,7 +23,7 @@ exports.onPost = (req, res) => {
         name: req.body.name
     };
 
-    console.log(`Message '${req.body.text}' from '${req.body.sender_id}' recieved`, req.body);
+    console.log(`Message '${req.body.text}' from '${req.body.sender_id}' recieved`);
 
     modules.forEach((moduleOn) => {
         moduleOn.process(message, bot);

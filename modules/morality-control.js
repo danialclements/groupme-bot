@@ -377,7 +377,9 @@ const words = [
 	"zoophilia",
 	"🖕",
 	"nickelback",
-	"jackson"
+	"jackson",
+	"missy",
+	"empenadas"
 ];
 
 const balances = {};
