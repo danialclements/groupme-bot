@@ -1,8 +1,8 @@
 exports.process = (message, bot) => {
-    const toSearchFor = "@gif ";
+    const toSearchFor = "@sticker ";
     const index = message.text.toLowerCase().indexOf(toSearchFor);
 
-    if (message.is_bot) {
+	if (message.is_bot) {
         return;
     }
 
@@ -12,7 +12,7 @@ exports.process = (message, bot) => {
         const toSearch = message.text.substring(index + toSearchFor.length);
         
         //Get the total, encoded URL we're going to pass to Giphy to search
-        const giphyurl = `http://api.giphy.com/v1/gifs/search?limit=5&q=${encodeURIComponent(toSearch)}&api_key=dc6zaTOxFJmzC&rating=r`;
+        const giphyurl = `http://api.giphy.com/v1/stickers/search?limit=5&q=${encodeURIComponent(toSearch)}&api_key=dc6zaTOxFJmzC&rating=r`;
         
         //Get the giphy result, and send it, if found
         bot.request.get(giphyurl, (error, response, body) => {

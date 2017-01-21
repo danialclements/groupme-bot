@@ -22,13 +22,19 @@
   },
   "homepage": "https://github.com/Meegul304/groupme-bot#readme",
   "dependencies": {
+    "bluebird": "^3.4.7",
     "body-parser": "^1.15.2",
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
+    "html-to-text": "^3.0.0",
     "lodash": "^4.17.4",
+    "moment": "^2.17.1",
+    "node-ddg-api": "^0.1.4",
+    "redis": "^2.6.5",
     "request": "^2.79.0"
   },
   "devDependencies": {
-    "eslint": "^3.11.1"
+    "eslint": "^3.11.1",
+    "fakeredis": "^1.0.3"
   }
 }

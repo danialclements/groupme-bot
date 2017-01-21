@@ -144,7 +144,7 @@ const words = [
 	"foot fetish",
 	"footjob",
 	"frotting",
-	"fuck",
+	"(mother|mutha)*fuck(ing|er|in)*",
 	"fuck buttons",
 	"fuckin",
 	"fucking",
@@ -322,8 +322,6 @@ const words = [
 	"strappado",
 	"strip club",
 	"style doggy",
-	"suck",
-	"sucks",
 	"suicide girls",
 	"sultry women",
 	"swastika",
@@ -383,6 +381,7 @@ const words = [
 ];
 
 const balances = {};
+const client = require('redis').createClient(process.env.REDIS_URL);
 const badWordValue = 5;
 const currencySymbol = "💸"
 const currencyName = "Galactic Credits";
@@ -390,18 +389,24 @@ const currencyName = "Galactic Credits";
 exports.process = (message, bot) => {
 	let badWords = [],
 		text = (message.text || "").toLowerCase();
-
+	
+	// Prevent feedback
     if (message.is_bot) {
         return;
     }
 
+	// An attempt at auto greetings
 	if (text.indexOf("morni") > -1) {
 		bot.sendMessage(`🌞 Good morning ${message.name}`);
 	}
     
+	// Loop through bad words for matches
 	words.forEach((word) => {
-		if (text.indexOf(word) > -1) {
-			badWords.push(word);
+		const regex = new RegExp(`\b${word}\b`, 'ig');
+		let results;
+		// Iterate over the text string, extracting all you can
+		while ((results = regex.exec(text)) !== null) {
+			badWords.push(results[0]);	
 		}
 	});
 
