@@ -1,6 +1,5 @@
 // Load Environment
-const env = require('dotenv').config();
-console.log(env);
+require('dotenv').config();
 
 
 const express = require("express");
