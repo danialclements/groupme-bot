@@ -28,7 +28,7 @@ exports.process = (message, bot) => {
 			if (count === 0) {
 				bot.sendMessage("http://i.imgur.com/Aj9MbyI.gif")
 			} else if (count >= 1) {
-				bot.sendMessage(`[${count}00 meters] Rate of Decent: -9.${Math.floor(Math.random() * 1000)} m/s`);
+				bot.sendMessage(`[${count}00 meters] Rate of descent: -9.${Math.floor(Math.random() * 1000)} m/s`);
 				setTimeout(sendMessage, delay);
 			}
 			count = count - 1;
