@@ -23,7 +23,8 @@ bot.initialize({
         'twss',
         'notification-bomb',
         'duckDuckGoAnswers',
-        'help'
+        'help',
+        'wolfram-alpha'
     ]
 });
 

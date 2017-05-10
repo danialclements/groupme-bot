@@ -27,11 +27,13 @@
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "html-to-text": "^3.0.0",
+    "imdb-api": "^2.2.1",
     "lodash": "^4.17.4",
     "moment": "^2.17.1",
     "node-ddg-api": "^0.1.4",
     "redis": "^2.6.5",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "wolfram-alpha": "^0.5.0"
   },
   "devDependencies": {
     "eslint": "^3.11.1",
